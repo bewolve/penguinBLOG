@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="wrapper">
+        <p>Are you sure you want to delete <strong>{{obj.title}} - {{obj.user.first_name}}</strong></p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <a class="btn btn-primary" href="{% url 'article' obj.slug %}" role="button">&#8592 Go Back</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
+
+
+body {
+    font-family: 'Assistant', sans-serif;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.card .card-body .btn:hover {
+    background-color: #ffc107;
+    color: black;
+    border: 1px #d6a100 solid;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+.container .wrapper .btn:hover {
+    opacity: 0.8;
+    border: 1px rgb(116, 0, 0) solid;
+}
+
+.title-head .cat-main {
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 1px black solid;
+}
+.title-head .cat-main:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #006048 ;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: black;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.navbar-brand {
+    color: black;
+}
+
+.navbar-brand:hover {
+    color: #0d6efd;
+}
+
+.card {
+    box-shadow: 10px 10px 20px rgb(88, 88, 88);
+
+}
+
+.user-title-home {
+    color: #0d6efd;
+    
+}
+
+.home-base-title {
+    letter-spacing: 5px;
+    text-align: center;
+}
