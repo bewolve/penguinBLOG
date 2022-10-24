@@ -18,8 +18,8 @@
 
         {% for article in articles %}
 
-        <div class="card mx-3 my-3" style="width: 18em;">
-            <img src="{{article.image.url}}" class="mt-3 card-img-top" alt="article-image" style='border: 1px black solid;' height='250px' width='250px'>
+        <div class="card mx-3 my-3" style="width: 18em; background-color: #f8f9fa">
+            <img src="{{article.image.url}}" class="mt-3 card-img-top" alt="article-image" height='250px' width='250px'>
             <div class="card-body">
                 <h4 class="card-title">{{article.title|truncatechars:18}}</h4>
                 <p class="card-text">{{article.body|truncatechars:75}}</p>
