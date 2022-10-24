@@ -2,8 +2,8 @@ from django.forms import ModelForm
 from .models import Article
 
 
-class ArticleForm (ModelForm):
+class ArticleForm(ModelForm):
     class Meta:
         model = Article
-        fields = '__all__'
-        exclude = ('user', 'slug')
+        fields = "__all__"
+        exclude = ("user", "slug")

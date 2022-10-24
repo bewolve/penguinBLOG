@@ -7,15 +7,18 @@
     <div class="wrapper">
         <a class="btn btn-primary mb-4" href="{{request.META.HTTP_REFERER}}" role="button">&#8592 Go Back</a>
 
-        <div class="title-head">
-            {% for cat in article.category.all %}
-            <a href="{% url 'home' %}?q={{cat}}"><small class='muted cat-main'>{{cat}}</small></a>
-            {% endfor %}
+        <div class="headerflex">
+            <div class="title-head">
+                {% for cat in article.category.all %}
+                <a href="{% url 'home' %}?q={{cat}}"><small class='muted cat-main'>{{cat}}</small></a>
+                {% endfor %}
 
-            <h2 class="my-3">{{article.title}}</h2>
+                <h2 class="my-3">{{article.title}}</h2>
+                <small class="muted">{{article.created_at}}</small>
+            </div>
+            <img class='article-img' src="{{article.image.url}}" alt="">
         </div>
         <div class="body-article">
-            <small class="muted">{{article.created_at}}</small>
             <p style='border-radius: 10px; background-color: #ededed; padding: 15px; margin: 1.2em 0em'>{{article.body}}
             </p>
         </div>
