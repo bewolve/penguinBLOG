@@ -14,9 +14,7 @@ def home(request):
     if request.GET.get("q") is not None:
 
         articles = Article.objects.filter(
-            Q(user__first_name__icontains=q)
-            | Q(title__icontains=q)
-            | Q(category__title__icontains=q)
+            Q(user__first_name__icontains=q) | Q(category__title__icontains=q)
         ).order_by("-created_at")
 
     else:
