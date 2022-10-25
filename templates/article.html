@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -29,13 +29,38 @@
         </div>
 
         <div class="btn-editable">
-            {% if request.user == article.user %}
+            {% if request.user.is_authenticated and request.user == article.user %}
             <a class="btn btn-danger mb-4 btn-edit" href="{% url 'delete' article.slug%}" role="button">Delete</a>
             <a class="btn btn-success mb-4 btn-edit" href="{% url 'update' article.slug%}" role="button">Update</a>
             {% endif %}
         </div>
 
     </div>
+
+    <section class="comments mt-5">
+
+        <div class="all-comments">
+            <h3>Comments:</h3>
+            {% for comment in article.comments.all %}
+            <div class="each-comment mb-3">
+                <p class='comment-self'>{{comment.body}} - {{comment.user.first_name}}</p>
+                <small class='comment-time'>{{comment.created_at}}</small>
+            </div>
+            {% endfor %}
+            {% comment %} WILL ADD COMMENTS HERE {% endcomment %}
+        </div>
+        {% if request.user.is_authenticated %}
+        <form class='comment-box mt-5' action="" method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="btn comment-btn btn-warning">Add Comment</button>
+        </form>
+        {% else %}
+        <a class="btn btn-dark" href="{% url 'login'%}" role="button">Login to Comment</a>
+        {% endif %}
+
+
+    </section>
 </div>
 
 {% endblock content %}

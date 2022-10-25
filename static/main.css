@@ -41,6 +41,8 @@ a {
     border: 1px rgb(116, 0, 0) solid;
 }
 
+
+
 .title-head .cat-main {
     color: black;
     border-radius: 10px;
@@ -86,4 +88,28 @@ a {
 .home-base-title {
     letter-spacing: 5px;
     text-align: center;
+}
+
+
+
+.each-comment {
+    padding: 10px;
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.comment-self {
+    font-size: 18px;
+    margin: 0;
+}
+
+.comment-time {
+    margin-left: auto;
+}
+
+#id_body {
+    padding: 16px 5px;
 }

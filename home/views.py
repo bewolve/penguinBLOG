@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import login, logout, authenticate
 
-from .forms import ArticleForm
+from .forms import ArticleForm, CommentForm
 
 # Create your views here.
 def home(request):
@@ -26,7 +26,18 @@ def home(request):
 
 def article(request, slug):
     article = Article.objects.get(slug=slug)
-    context = {"article": article}
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.article = article
+            comment.save()
+            return redirect("article", article.slug)
+
+    form = CommentForm()
+    context = {"article": article, "form": form}
     return render(request, "article.html", context)
 
 

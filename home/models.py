@@ -41,7 +41,7 @@ class Comment(models.Model):
     article = models.ForeignKey(
         Article, related_name="comments", on_delete=models.CASCADE
     )
-    body = models.TextField()
+    body = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
