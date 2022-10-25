@@ -92,13 +92,14 @@ a {
     color: black;
     border-radius: 10px;
     padding: 5px 10px;
-    border: 1px #222 solid;
+    background-color: #ffc107;
+    /* border: 1px #222 solid; */
 }
 
 .title-head .cat-main:hover {
     cursor: pointer;
-    color: black;
-    background-color: #ffc107;
+    opacity: 0.8;
+
 }
 
 
