@@ -10,6 +10,32 @@ a {
     color: #222;
 }
 
+
+/* NAVBAR CODE  */
+.nav-link {
+    font-size: 20px;
+    color: black;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.navbar-brand {
+    color: black;
+}
+
+.navbar-brand:hover {
+    color: #0d6efd;
+}
+
+/* NAVBAR CODE END  */
+
+
+
+
 .card-img-top {
     object-fit: cover;
 }
@@ -34,13 +60,6 @@ a {
 }
 
 
-
-a {
-    text-decoration: none;
-}
-
-
-
 .container .wrapper .btn:hover {
     opacity: 0.8;
     border: 1px rgb(116, 0, 0) solid;
@@ -61,24 +80,7 @@ a {
     background-color: #ffc107;
 }
 
-.nav-link {
-    font-size: 20px;
-    color: black;
-}
 
-.nav-link:hover {
-    color: #0d6efd;
-    cursor: pointer;
-    border-bottom: 1px black solid;
-}
-
-.navbar-brand {
-    color: black;
-}
-
-.navbar-brand:hover {
-    color: #0d6efd;
-}
 
 .card {
     box-shadow: 10px 10px 20px rgb(88, 88, 88);
@@ -95,6 +97,10 @@ a {
     text-align: center;
 }
 
+
+
+
+/* COMMENT BOX CODE  */
 
 
 .each-comment {
@@ -115,6 +121,9 @@ a {
     margin-left: auto;
 }
 
-#id_body {
-    padding: 16px 5px;
+.comment-form-text {
+    padding: 12px;
 }
+
+
+/* COMMENT BOX CODE END  */

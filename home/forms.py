@@ -15,7 +15,12 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ("body",)
         widgets = {
-            "body": forms.TextInput(attrs={"placeholder": "Enter your comment"}),
+            "body": forms.TextInput(
+                attrs={
+                    "placeholder": "Enter your comment",
+                    "class": "comment-form-text",
+                }
+            ),
         }
         labels = {
             "body": "",

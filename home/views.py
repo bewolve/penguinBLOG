@@ -49,7 +49,7 @@ def create(request):
             form = ArticleForm(request.POST, request.FILES)
             if form.is_valid():
                 if form.is_valid():
-                    # form.save() returns a model instance, not another form
+                    # when commit=false, form.save() returns a model instance, not another form
                     article = form.save(commit=False)
                     article.user = request.user
                     article.save()
