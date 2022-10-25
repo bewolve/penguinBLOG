@@ -43,18 +43,22 @@ def article(request, slug):
 
 @login_required(login_url="login")
 def create(request):
+    if request.user.is_superuser:
 
-    if request.method == "POST":
-        form = ArticleForm(request.POST, request.FILES)
-        if form.is_valid():
+        if request.method == "POST":
+            form = ArticleForm(request.POST, request.FILES)
             if form.is_valid():
-                # form.save() returns a model instance, not another form
-                article = form.save(commit=False)
-                article.user = request.user
-                article.save()
-                form.save_m2m()
+                if form.is_valid():
+                    # form.save() returns a model instance, not another form
+                    article = form.save(commit=False)
+                    article.user = request.user
+                    article.save()
+                    form.save_m2m()
 
-            return redirect("home")
+                return redirect("home")
+
+    else:
+        return redirect("home")
 
     form = ArticleForm()
     form.order_fields(field_order=["title", "body", "image", "category"])
@@ -64,29 +68,35 @@ def create(request):
 
 @login_required(login_url="login")
 def delete_article(request, slug):
-    article = Article.objects.get(slug=slug)
 
-    if request.method == "POST":
-        article.delete()
+    if request.user.is_superuser:
+        article = Article.objects.get(slug=slug)
+
+        if request.method == "POST":
+            article.delete()
+            return redirect("home")
+
+        context = {"obj": article}
+    else:
         return redirect("home")
-
-    context = {"obj": article}
     return render(request, "deletepage.html", context)
 
 
 @login_required(login_url="login")
 def update_article(request, slug):
-    article = Article.objects.get(slug=slug)
+    if request.user.is_superuser:
+        article = Article.objects.get(slug=slug)
 
-    if request.method == "POST":
-        form = ArticleForm(request.POST, request.FILES, instance=article)
-        if form.is_valid():
-            article = form.save(commit=False)
-            article.user = request.user
-            article.save()
-            form.save_m2m()
-            return redirect("article", slug=article.slug)
-
+        if request.method == "POST":
+            form = ArticleForm(request.POST, request.FILES, instance=article)
+            if form.is_valid():
+                article = form.save(commit=False)
+                article.user = request.user
+                article.save()
+                form.save_m2m()
+                return redirect("article", slug=article.slug)
+    else:
+        return redirect("home")
     form = ArticleForm(instance=article)
     context = {"form": form}
     return render(request, "article_form.html", context)

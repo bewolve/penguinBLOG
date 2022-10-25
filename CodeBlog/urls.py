@@ -5,6 +5,7 @@ from django.urls import path, include
 from authuser import views as v
 
 urlpatterns = [
+    path("signup/", v.registerUser, name="signup"),
     path("login/", v.loginuser, name="login"),
     path("logout/", v.logoutuser, name="logout"),
     path("", include("home.urls")),

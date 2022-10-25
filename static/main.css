@@ -5,6 +5,11 @@ body {
     font-family: 'Assistant', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #222;
+}
+
 .card-img-top {
     object-fit: cover;
 }

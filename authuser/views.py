@@ -3,7 +3,22 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
+from django.contrib.auth.forms import UserCreationForm
+
 # Create your views here.
+
+
+def registerUser(request):
+    form = UserCreationForm
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+
+    context = {"form": form}
+    return render(request, "auth/signup.html", context)
 
 
 def loginuser(request):
