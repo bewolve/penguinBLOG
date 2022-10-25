@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container my-4 d-flex justify-content-center">
     <div class="wrapper">
-        <div class="form-control" style="width: 40em;">
+        <div class="form-control article-form-control">
             <form action="" enctype="multipart/form-data" method="post">
                 {% csrf_token %}
                 {{form|crispy}}
@@ -14,4 +14,3 @@
     </div>
 </div>
 {% endblock content %}
-
