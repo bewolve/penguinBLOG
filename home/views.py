@@ -3,7 +3,6 @@ from .models import Article
 
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.contrib.auth import login, logout, authenticate
 
 from .forms import ArticleForm, CommentForm
 

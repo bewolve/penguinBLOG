@@ -137,10 +137,12 @@ a {
 .comment-self {
     font-size: 18px;
     margin: 0;
+    margin-right: 10px;
 }
 
 .comment-time {
     margin-left: auto;
+
 }
 
 .comment-form-text {
@@ -149,3 +151,19 @@ a {
 
 
 /* COMMENT BOX CODE END  */
+
+
+.create-account-link {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.article-user-name-comment {
+    font-size: 14px;
+    color: #0d6efd;
+    margin-left: 10px;
+}
+
+.article-user-name-comment:hover {
+    text-decoration: underline;
+}

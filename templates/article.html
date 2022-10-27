@@ -25,7 +25,8 @@
             </p>
         </div>
         <div class="userauthor d-flex justify-content-end">
-            <h6>~ {{article.user.username|title}}</h6>
+            <h6>~ {{article.user.get_full_name}}</h6>
+            {% comment %} I can also use get_username method for User object to get username {% endcomment %}
         </div>
 
         <div class="btn-editable">
@@ -43,8 +44,9 @@
             <h3>Comments:</h3>
             {% for comment in article.comments.all %}
             <div class="each-comment mb-3">
-                <p class='comment-self'>{{comment.body}} - {{comment.user.username}}</p>
-                <small class='comment-time'>{{comment.created_at}}</small>
+                <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}<a href='#'
+                        class='article-user-name-comment'>@{{comment.user.get_username}}</a></p>
+                <small class='comment-time'>{{comment.created_at|date}}</small>
             </div>
             {% endfor %}
             {% comment %} WILL ADD COMMENTS HERE {% endcomment %}
