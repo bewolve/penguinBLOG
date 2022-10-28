@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'profile.css' %}">
+{% endblock stylesheet %}
+
+
+
+{% block content %}
+
+<div class="container mt-3">
+
+  <section class="profile-container">
+
+    <div class="main-profile">
+      <h2 class="user-name-profile mb-4">{{request.user.get_full_name}}<span
+          class='username-profile-header'>@{{request.user.get_username}}</span></h2>
+      {% if request.user.article.all%}
+      {% for article in request.user.article.all %}
+      <h4><a class='profile-posts' href="{% url 'article' article.slug %} ">{{article.title}}</a></h4>
+      {% endfor %}
+      {% else %}
+      <h4>No Articles Exist.</h4>
+      {% endif %}
+    </div>
+
+    <div class="activity-profile">
+      <h3>All @{{request.user.username}} comments</h3>
+      {% if request.user.comments.all %}
+      {% for comments in request.user.comments.all %}
+      <div class="each-comment-activity mb-3">
+        <p class="activity-comment">{{comments.body}}</p>
+        <a href="{% url 'delete-comment' comments.id %}" class="btn btn-outline-danger">delete</a>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>No Comments Exist</p>
+      {% endif %}
+
+    </div>
+
+  </section>
+
+</div>
+
+{% endblock content %}

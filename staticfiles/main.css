@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
+
+
+body {
+    font-family: 'Assistant', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+.article-form-control {
+    width: 40em;
+}
+
+.card {
+    width: 18em;
+    background-color: #f8f9fa;
+    align-items: center;
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+
+}
+
+
+/* NAVBAR CODE  */
+.nav-link {
+    font-size: 20px;
+    color: black;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.navbar-brand {
+    color: black;
+}
+
+.navbar-brand:hover {
+    color: #0d6efd;
+}
+
+/* NAVBAR CODE END  */
+
+
+/* ARTICLE CODE  */
+.article-body-p {
+    border-radius: 10px;
+    background-color: #ededed;
+    padding: 15px;
+    margin: 1.2em 0em
+}
+
+
+
+
+.headerflex {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.article-img {
+    width: 120px;
+    height: 120px;
+    justify-self: end;
+    border-radius: 50%;
+}
+
+.card .card-body .btn:hover {
+    background-color: #ffc107;
+    color: black;
+    border: 1px #d6a100 solid;
+}
+
+
+.container .wrapper .btn:hover {
+    opacity: 0.8;
+    border: 1px rgb(116, 0, 0) solid;
+}
+
+
+
+.title-head .cat-main {
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #ffc107;
+    /* border: 1px #222 solid; */
+}
+
+.title-head .cat-main:hover {
+    cursor: pointer;
+    opacity: 0.8;
+
+}
+
+
+
+.card {
+    box-shadow: 10px 10px 20px rgb(88, 88, 88);
+
+}
+
+.user-title-home {
+    color: #0d6efd;
+
+}
+
+.home-base-title {
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+
+
+
+/* COMMENT BOX CODE  */
+
+
+.each-comment {
+    padding: 10px;
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.comment-self {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.comment-time {
+    margin-left: auto;
+
+}
+
+.comment-form-text {
+    padding: 12px;
+}
+
+
+/* COMMENT BOX CODE END  */
+
+
+.create-account-link {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.article-user-name-comment {
+    font-size: 14px;
+    color: #0d6efd;
+    margin-left: 10px;
+}
+
+.article-user-name-comment:hover {
+    text-decoration: underline;
+}

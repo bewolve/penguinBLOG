@@ -1,0 +1,33 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.activity-profile {
+  text-align: center;
+  border-left: 1px #222 solid;
+  border-right: 1px #222 solid;
+  padding: 0 20px;
+}
+
+.activity-comment {
+  border-top: 1px #222 solid;
+  padding-top: 10px;
+}
+
+.profile-posts {
+  color: crimson;
+  text-decoration: underline;
+}
+
+.username-profile-header {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.delete-comment-btn {
+  background-color: crimson;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 8px;
+}
