@@ -44,8 +44,7 @@
             <h3>Comments:</h3>
             {% for comment in article.comments.all %}
             <div class="each-comment mb-3">
-                <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}<a href='#'
-                        class='article-user-name-comment'>@{{comment.user.get_username}}</a></p>
+                <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}</p>
                 <small class='comment-time'>{{comment.created_at|date}}</small>
             </div>
             {% endfor %}

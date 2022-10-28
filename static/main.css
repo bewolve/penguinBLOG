@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 body {
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 a {
@@ -156,14 +155,4 @@ a {
 .create-account-link {
     text-decoration: underline;
     font-size: 18px;
-}
-
-.article-user-name-comment {
-    font-size: 14px;
-    color: #0d6efd;
-    margin-left: 10px;
-}
-
-.article-user-name-comment:hover {
-    text-decoration: underline;
 }

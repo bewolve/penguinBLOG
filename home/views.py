@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Article
+from .models import Article, Comment
 
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -8,18 +8,15 @@ from .forms import ArticleForm, CommentForm
 
 # Create your views here.
 def home(request):
-    articles = Article.objects.all().order_by("-created_at")
-    q = request.GET.get("q")
-    if request.GET.get("q") is not None:
+    q = request.GET.get("q") if request.GET.get("q") is not None else ""
 
-        articles = Article.objects.filter(
-            Q(user__first_name__icontains=q) | Q(category__title__icontains=q)
-        ).order_by("-created_at")
+    articles = Article.objects.filter(
+        Q(title__icontains=q) | Q(category__title__contains=q)
+    ).order_by("-created_at")
 
-    else:
-        q = ""
+    article_count = articles.count()
 
-    context = {"articles": articles}
+    context = {"articles": articles, "article_count": article_count}
     return render(request, "home.html", context)
 
 
@@ -99,3 +96,15 @@ def update_article(request, slug):
     form = ArticleForm(instance=article)
     context = {"form": form}
     return render(request, "article_form.html", context)
+
+
+# USER PROFILE SECTION
+def userProfile(request):
+    print(request.user.article.all)
+    return render(request, "profile.html")
+
+
+def delete_comment(request, id):
+    comment = Comment.objects.get(id=id)
+    comment.delete()
+    return redirect(request.META.get("HTTP_REFERER"))

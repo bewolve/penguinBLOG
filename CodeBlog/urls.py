@@ -9,5 +9,8 @@ urlpatterns = [
     path("login/", v.loginuser, name="login"),
     path("logout/", v.logoutuser, name="logout"),
     path("", include("home.urls")),
-    path("supers3cret4dm1n/", admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("admin/", admin.site.urls),
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
