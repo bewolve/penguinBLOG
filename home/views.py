@@ -8,7 +8,7 @@ from .forms import ArticleForm, CommentForm
 
 # Create your views here.
 def home(request):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by("-created_at")
     if request.GET.get("q"):
         q = request.GET.get("q")
 

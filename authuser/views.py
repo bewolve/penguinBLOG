@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 from .forms import SignupForm, ProfilePhotoForm
 
@@ -39,12 +40,14 @@ def loginuser(request):
     return render(request, "auth/login.html", context)
 
 
+@login_required(login_url="login")
 def logoutuser(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect("home")
 
 
+@login_required(login_url="login")
 def change_profile_photo(request):
     profile = Profile.objects.get(id=request.user.profile.id)
     form = ProfilePhotoForm(instance=profile)

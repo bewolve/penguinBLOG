@@ -12,15 +12,21 @@
 
 <div class="container mt-3">
 
+
+  <div class="profile_header_main">
+    <div class="content-header">
+      <h2 class="user-name-profile">{{request.user.get_full_name}}</h2>
+      <span class='username-profile-header'>@{{request.user.get_username}}</span><br>
+      <a class='changepfplabel' href="{% url 'changepfp' %}">Change Profile Photo</a>
+    </div>
+    <img class='user-img' src="{{request.user.profile.pfp.url}}" alt="">
+  </div>
+
+
+
   <section class="profile-container">
 
-    <div class="main-profile">
-      <div class="profile_header_main">
-        <h2 class="user-name-profile">{{request.user.get_full_name}}</h2>
-        <p class='username-profile-header'>@{{request.user.get_username}}</p>
-        <img class='user-img' src="{{request.user.profile.pfp.url}}" alt="">
-        <a href="{% url 'changepfp' %}">Change Profile Photo</a>
-      </div>
+    <div class="articles">
       {% if request.user.article.all%}
       {% for article in request.user.article.all %}
       <h4><a class='profile-posts' href="{% url 'article' article.slug %} ">{{article.title}}</a></h4>
@@ -29,6 +35,7 @@
       <h4>No Articles Exist.</h4>
       {% endif %}
     </div>
+
 
     <div class="activity-profile">
       <h3>All @{{request.user.username}} comments</h3>
@@ -42,11 +49,16 @@
       {% else %}
       <p>No Comments Exist</p>
       {% endif %}
-
     </div>
+
+
+
+
+
 
   </section>
 
 </div>
+{% comment %} CONTAINER FDIV END {% endcomment %}
 
 {% endblock content %}
