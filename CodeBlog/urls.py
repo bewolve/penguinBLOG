@@ -8,6 +8,7 @@ urlpatterns = [
     path("signup/", v.registerUser, name="signup"),
     path("login/", v.loginuser, name="login"),
     path("logout/", v.logoutuser, name="logout"),
+    path("changepfp/", v.change_profile_photo, name="changepfp"),
     path("", include("home.urls")),
     path("admin/", admin.site.urls),
 ]

@@ -1,7 +1,7 @@
-from socket import fromshare
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from .models import Profile
 
 
 class SignupForm(UserCreationForm):
@@ -11,3 +11,10 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "first_name", "last_name", "email"]
+
+
+class ProfilePhotoForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ("pfp",)
+        labels = {"pfp": "Choose your profile photo"}

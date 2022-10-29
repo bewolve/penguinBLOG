@@ -21,7 +21,7 @@ class Article(models.Model):
     image = models.ImageField(
         upload_to="uploads/articles/",
         null=True,
-        default="uploads/articles/noimage.png",
+        default="..static/noimage.png",
     )
     title = models.CharField(max_length=120)
     body = models.TextField()

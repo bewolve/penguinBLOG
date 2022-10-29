@@ -38,11 +38,12 @@
   width: 120px;
   margin-left: auto;
   border: 1px #222 solid;
-  margin-right: 10px;
 }
 
 .profile_header_main {
   display: flex;
   border-bottom: 1px #222 solid;
   margin-bottom: 10px;
+  align-items: center;
+  padding: 0 12px;
 }

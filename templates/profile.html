@@ -16,9 +16,10 @@
 
     <div class="main-profile">
       <div class="profile_header_main">
-        <h2 class="user-name-profile">{{request.user.get_full_name}}<span
-            class='username-profile-header'>@{{request.user.get_username}}</span></h2>
+        <h2 class="user-name-profile">{{request.user.get_full_name}}</h2>
+        <p class='username-profile-header'>@{{request.user.get_username}}</p>
         <img class='user-img' src="{{request.user.profile.pfp.url}}" alt="">
+        <a href="{% url 'changepfp' %}">Change Profile Photo</a>
       </div>
       {% if request.user.article.all%}
       {% for article in request.user.article.all %}

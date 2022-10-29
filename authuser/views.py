@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from .models import Profile
 
-from .forms import SignupForm
+from .forms import SignupForm, ProfilePhotoForm
 
 # Create your views here.
 
@@ -42,3 +43,18 @@ def logoutuser(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect("home")
+
+
+def change_profile_photo(request):
+    profile = Profile.objects.get(id=request.user.profile.id)
+    form = ProfilePhotoForm(instance=profile)
+    if request.method == "POST":
+        form = ProfilePhotoForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect("userProfile")
+
+    context = {"form": form}
+    return render(request, "changepfp.html", context)

@@ -44,12 +44,11 @@ def create(request):
         if request.method == "POST":
             form = ArticleForm(request.POST, request.FILES)
             if form.is_valid():
-                if form.is_valid():
-                    # when commit=false, form.save() returns a model instance, not another form
-                    article = form.save(commit=False)
-                    article.user = request.user
-                    article.save()
-                    form.save_m2m()
+                # when commit=false, form.save() returns a model instance, not another form
+                article = form.save(commit=False)
+                article.user = request.user
+                article.save()
+                form.save_m2m()
 
                 return redirect("home")
 
