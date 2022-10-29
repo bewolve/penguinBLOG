@@ -8,11 +8,16 @@ from .forms import ArticleForm, CommentForm
 
 # Create your views here.
 def home(request):
-    q = request.GET.get("q") if request.GET.get("q") is not None else ""
+    articles = Article.objects.all()
+    if request.GET.get("q"):
+        q = request.GET.get("q")
 
-    articles = Article.objects.filter(
-        Q(title__icontains=q) | Q(category__title__contains=q)
-    ).order_by("-created_at")
+        articles = Article.objects.filter(Q(category__title__contains=q)).order_by(
+            "-created_at"
+        )
+
+    else:
+        q = ""
 
     article_count = articles.count()
 
@@ -105,5 +110,6 @@ def userProfile(request):
 
 def delete_comment(request, id):
     comment = Comment.objects.get(id=id)
-    comment.delete()
+    if comment.user == request.user:
+        comment.delete()
     return redirect(request.META.get("HTTP_REFERER"))

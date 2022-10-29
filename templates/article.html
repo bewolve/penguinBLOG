@@ -41,15 +41,18 @@
     <section class="comments mt-5">
 
         <div class="all-comments">
+
             <h3>Comments:</h3>
             {% for comment in article.comments.all %}
             <div class="each-comment">
                 <img src="{{comment.user.profile.pfp.url}}" alt="" class="user-img-comments">
-                <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}</p>
-                <small class='comment-time'>{{comment.created_at|date}}</small>
+                <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}
+                    {% if comment.user == request.user %}<a class='x-button'
+                        href='{% url 'delete-comment' comment.id %}'> &#10005</a>{% endif %}</p>
+                <small class='comment-time'>{{comment.created_at|timesince}}</small>
             </div>
             {% endfor %}
-            {% comment %} WILL ADD COMMENTS HERE {% endcomment %}
+
         </div>
         {% if request.user.is_authenticated %}
         <form class='comment-box mt-5' action="" method="post">

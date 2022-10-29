@@ -139,7 +139,7 @@ a {
     display: flex;
     align-items: center;
     border-radius: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 
 }
 
@@ -165,4 +165,12 @@ a {
 .create-account-link {
     text-decoration: underline;
     font-size: 18px;
+}
+
+.x-button {
+    color: red;
+}
+
+.all-comments {
+    margin: 10px 0;
 }

@@ -46,3 +46,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.body[:50]} - {self.user.username}"
+
+    class Meta:
+        ordering = ["-created_at"]
