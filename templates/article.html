@@ -43,7 +43,8 @@
         <div class="all-comments">
             <h3>Comments:</h3>
             {% for comment in article.comments.all %}
-            <div class="each-comment mb-3">
+            <div class="each-comment">
+                <img src="{{comment.user.profile.pfp.url}}" alt="" class="user-img-comments">
                 <p class='comment-self'>{{comment.body}} - {{comment.user.get_full_name}}</p>
                 <small class='comment-time'>{{comment.created_at|date}}</small>
             </div>

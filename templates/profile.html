@@ -15,8 +15,11 @@
   <section class="profile-container">
 
     <div class="main-profile">
-      <h2 class="user-name-profile mb-4">{{request.user.get_full_name}}<span
-          class='username-profile-header'>@{{request.user.get_username}}</span></h2>
+      <div class="profile_header_main">
+        <h2 class="user-name-profile">{{request.user.get_full_name}}<span
+            class='username-profile-header'>@{{request.user.get_username}}</span></h2>
+        <img class='user-img' src="{{request.user.profile.pfp.url}}" alt="">
+      </div>
       {% if request.user.article.all%}
       {% for article in request.user.article.all %}
       <h4><a class='profile-posts' href="{% url 'article' article.slug %} ">{{article.title}}</a></h4>

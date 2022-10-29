@@ -31,3 +31,18 @@
   border-radius: 10px;
   padding: 5px 8px;
 }
+
+.user-img {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin-left: auto;
+  border: 1px #222 solid;
+  margin-right: 10px;
+}
+
+.profile_header_main {
+  display: flex;
+  border-bottom: 1px #222 solid;
+  margin-bottom: 10px;
+}
